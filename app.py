@@ -42,7 +42,7 @@ else:
 
         # OpenAI API를 사용하여 응답을 생성합니다.
         stream = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=st.session_state.messages,
             stream=True,
         )
