@@ -9,8 +9,8 @@ st.write(
     "자세한 정보는 [포도미디어 홈페이지](http://www.podooh.com/)를 방문해주세요."
 )
 
-# OpenAI API 키를 secrets.toml에서 가져옵니다.
-openai_api_key = st.secrets["openai_api_key"]
+# OpenAI API 키를 secrets에서 가져옵니다.
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 if not openai_api_key:
     st.error("OpenAI API 키가 설정되어 있지 않습니다.", icon="🗝️")
     st.stop()
@@ -50,7 +50,7 @@ if prompt := st.chat_input("무엇을 도와드릴까요?"):
 
     # OpenAI API를 사용하여 응답을 생성합니다.
     stream = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4",
         messages=st.session_state.messages,
         stream=True,
     )
